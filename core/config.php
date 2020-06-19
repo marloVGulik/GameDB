@@ -1,4 +1,5 @@
 <?php
+define('DEVMODE', false);
 define('LOGIN_ENABLED', true);
 define('SALT', 'VeryGoodAndProperSalt');
 

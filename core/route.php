@@ -5,8 +5,11 @@ function route() {
 	$url = splitUrl();
 	// print_r($url);
 	// print_r(ROOT);
-	print_r(ROOT . 'controller/' . $url['controller'] . '.php');
-	print_r(file_exists(ROOT . 'controller/' . $url['controller'] . '.php'));
+	if(DEVMODE) {
+		print_r(ROOT . 'controller/' . $url['controller'] . '.php');
+		print_r(file_exists(ROOT . 'controller/' . $url['controller'] . '.php'));
+		die;
+	}
 	// die;
 
 	/* if(LOGIN_ENABLED && !isset($_SESSION['loggedIn'])) { // Login systeem; kan uitgeschakelt worden in config

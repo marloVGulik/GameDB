@@ -1,6 +1,5 @@
 <?php
 
 function index() {
-    die;
-    echo "test";
+    render("games/index");
 }

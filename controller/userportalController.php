@@ -12,5 +12,5 @@ function login() {
 }
 function logout() {
     session_destroy();
-    header("location: " . URL . "/userportal/login");
+    header("location: " . URL);
 }
