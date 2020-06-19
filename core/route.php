@@ -5,9 +5,11 @@ function route() {
 	$url = splitUrl();
 	// print_r($url);
 	// print_r(ROOT);
-	// print_r(ROOT . 'controller/' . $url['controller'] . '.php');
+	print_r(ROOT . 'controller/' . $url['controller'] . '.php');
+	print_r(file_exists(ROOT . 'controller/' . $url['controller'] . '.php'));
+	// die;
 
-	if(LOGIN_ENABLED && !isset($_SESSION['loggedIn'])) { // Login systeem; kan uitgeschakelt worden in config
+	/* if(LOGIN_ENABLED && !isset($_SESSION['loggedIn'])) { // Login systeem; kan uitgeschakelt worden in config
 		require(ROOT . 'controller/userportalController.php');
 		if(isset($url['action'])) {
 			if(function_exists($url['action'])) {
@@ -18,7 +20,7 @@ function route() {
 		} else {
 			call_user_func('register');
 		}
-	} elseif (!isset($url['controller']) || $url['controller'] == NULL) { // Bestaat controller?
+	} else*/if (!isset($url['controller']) || $url['controller'] == NULL) { // Bestaat controller?
 		require(ROOT . 'controller/' . DEFAULT_CONTROLLER . 'Controller.php');
 		call_user_func('index');
 	} elseif (file_exists(ROOT . 'controller/' . $url['controller'] . '.php')) { // Bestaat controller bestand?

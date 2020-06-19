@@ -4,8 +4,6 @@ function checkRegisterData() {
     $tokenArray = [
         'loginName',
         'name',
-        'address',
-        'phoneNumber',
         'password'
     ];
     $doContinue = true;
@@ -22,11 +20,9 @@ function checkRegisterData() {
         if(strlen($_POST['password']) > 7) {
             $passCode = hash('sha512', SALT . $_POST['password']);
 
-            $errCode = DBcommand("INSERT INTO riders (`id`, `login-name`, `name`, `address`, `phonenumber`, `password`) VALUES (null, :loginname, :name, :address, :phonenumber, :password)", [
-                ':loginname' => $_POST['loginName'],
+            $errCode = DBcommand("INSERT INTO users (`id`, `username`, `name`, `password`) VALUES (null, :username, :name, :password)", [
+                ':username' => $_POST['loginName'],
                 ':name' => $_POST['name'],
-                ':address' => $_POST['address'],
-                ':phonenumber' => $_POST['phoneNumber'],
                 ':password' => $passCode
             ])['errorCode'];
 
@@ -55,15 +51,15 @@ function checkLoginData() {
         if(strlen($_POST['password']) > 7) {
             $passCode = hash('sha512', SALT . $_POST['password']);
 
-            $result = DBcommand("SELECT id, name, admin FROM riders WHERE `login-name` = :loginname AND `password` = :password", [
-                ':loginname' => $_POST['loginName'],
+            $result = DBcommand("SELECT id, name, privileges FROM users WHERE `username` = :username AND `password` = :password", [
+                ':username' => $_POST['loginName'],
                 ':password' => $passCode
             ])['output'];
             
             if(count($result) == 1) {
                 $_SESSION['loggedInRName'] = $result[0]['name'];
                 $_SESSION['loggedIn'] = $result[0]['id'];
-                $_SESSION['adminCode'] = $result[0]['admin'];
+                $_SESSION['adminCode'] = $result[0]['privileges'];
                 header("location: " . URL . "home");
             }
             // echo $errCode;

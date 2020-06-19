@@ -8,4 +8,7 @@ require(ROOT . "core/config.php");
 require(ROOT . "core/route.php");
 require(ROOT . "core/core.php");
 
+
+if(!isset($_SESSION['loggedIn'])) $_SESSION['loggedIn'] = -1;
+
 route();
