@@ -10,5 +10,5 @@ function details($gameid = null) {
     if($gameid == null) header("location: " . URL);
     render("games/details", array(
         'gameData' => getSingleGame($gameid);
-    ))
+    ));
 }
