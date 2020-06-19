@@ -7,6 +7,6 @@
             <input class="col-12 border rounded my-2 p-2" type="password" name="password" placeholder="Password">
             <input class="btn btn-outline-success btn-block my-2" type="submit" value="Register">
         </form>
-        <a href="<?= URL ?>userportal/login" class="btn btn-outline-primary btn-block my-2">Login</a>
+        <a href="<?= URL ?>userPortal/login" class="btn btn-outline-primary btn-block my-2">Login</a>
     </div>
 </div>
