@@ -5,7 +5,7 @@
             <p>Genre: <?= $game[0]['tag'] ?></p>
             <p>Release date: <?= $game[0]['released'] ?> </p>
             <p>Developer: <?= $game[0]['developer'] ?> </p>
-            <p><?= $game[0]['platform'] ?> </p>
+            <p>Platform: <?= $game[0]['platform'] ?> </p>
 
         </div>
         <div class="col-8 d-inline-block bg-dark text-light">
@@ -14,5 +14,4 @@
         </div>
 
     </div>
-	
 </div>
