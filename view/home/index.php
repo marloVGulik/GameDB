@@ -12,3 +12,8 @@ $tag['id']; /* tag id */
 $tag['tag']; /* tag name */
 <?php } ?>
 </div>
+<div class="cards">
+    <div class="card" style="background-image: url('images/minecraft.jpg')"></div>
+    <div class="card" style="background-image: url('images/farcry5.jpg')"></div>
+    <div class="card" style="background-image: url('images/csgo.jpg')"></div>
+</div>
