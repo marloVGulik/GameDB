@@ -1,9 +1,13 @@
 <?php
 
 require(ROOT . "model/gamesModel.php");
+require(ROOT . "model/homeModel.php");
 
 function index() {
-    render("games/details");
+	render("home/index", array(
+		'randomGames' => getRandomGames(),
+		'randomTags' => getRandomTags(),
+	));
 }
 function suggest() {
     checkSuggestionData();
