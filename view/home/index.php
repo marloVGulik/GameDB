@@ -1,19 +1,24 @@
-<!-- Link to game suggestion --><a href="<?= URL ?>games/suggest"></a>
-<div>
+<!-- Link to game suggestion --><a href="<?= URL ?>games/suggest">Suggest a game!</a>
+<div class="gamecards row justify-content-center">
 <?php foreach($randomGames as $game) { // Game card? (Game name, details page link using id, platform) ?>
-$game['id']; /* Game id */
-$game['gamename']; /* Game name */
-$game['platform']; /*  */
+    <a class="gamecard" style="background-image: url('<?= "public/images/games/" . $game['id'] ?>')" href="<?= URL ?>games/details/<?= $game['id'] ?>"></a>
 <?php } ?>
 </div>
-<div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="">
 <?php foreach($randomTags as $tag) { // Tag card? (Tag name, sort games by tag) ?>
 $tag['id']; /* tag id */
 $tag['tag']; /* tag name */
 <?php } ?>
-</div>
-<div class="cards">
-    <div class="card" style="background-image: url('images/minecraft.jpg')"></div>
-    <div class="card" style="background-image: url('images/farcry5.jpg')"></div>
-    <div class="card" style="background-image: url('images/csgo.jpg')"></div>
 </div>
