@@ -23,6 +23,6 @@ function newLink() {
 function genre($tag = NULL) {
     if($tag == NULL) header("location: " . URL . "genres");
     render("genres/genre", array(
-        "games" => getGamesByGenre($tag),
+        "games" => getGamesByGenre(underDecode($tag)),
     ));
 }
