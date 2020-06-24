@@ -12,8 +12,8 @@ function route() {
 	}
 	// die;
 
-	/* if(LOGIN_ENABLED && !isset($_SESSION['loggedIn'])) { // Login systeem; kan uitgeschakelt worden in config
-		require(ROOT . 'controller/userportalController.php');
+	if(LOGIN_ENABLED && !isset($_SESSION['loggedIn'])) { // Login systeem; kan uitgeschakelt worden in config
+		require(ROOT . 'controller/userPortalController.php');
 		if(isset($url['action'])) {
 			if(function_exists($url['action'])) {
 				call_user_func($url['action']);
@@ -23,7 +23,7 @@ function route() {
 		} else {
 			call_user_func('register');
 		}
-	} else*/if (!isset($url['controller']) || $url['controller'] == NULL) { // Bestaat controller?
+	} else if (!isset($url['controller']) || $url['controller'] == NULL) { // Bestaat controller?
 		require(ROOT . 'controller/' . DEFAULT_CONTROLLER . 'Controller.php');
 		call_user_func('index');
 	} elseif (file_exists(ROOT . 'controller/' . $url['controller'] . '.php')) { // Bestaat controller bestand?
