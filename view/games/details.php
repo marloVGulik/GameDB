@@ -19,3 +19,12 @@
     </div>
 	
 </div>
+
+
+
+<div>
+<h1>Deze kan je gebruiken voor later, is alvast klaar gezet voor je. Alleen de style nog niet xD</h1>
+<?php foreach($tags as $tag) { ?>
+    <a href="<?= URL ?>genres/genre/<?= underEncode($tag['tag']) ?>" class="btn btn-secondary m-1"><?= $tag['tag'] ?></a>
+<?php } ?>
+</div>

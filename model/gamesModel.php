@@ -39,3 +39,6 @@ function getSingleGame($id) {
     if(count($res) != 1) header("location: " . URL);
     return $res;
 }
+function getGameTags($id) {
+    return DBcommand("SELECT tags.tag, tags.id FROM gametaglink JOIN tags ON gametaglink.tagid = tags.id WHERE gametaglink.gameid = :id", [':id' => $id])['output'];
+}

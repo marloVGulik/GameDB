@@ -10,7 +10,7 @@
 <div class="p-2 mt-2">
     <?php foreach($tags as $tag) { ?>
 
-    <a href="<?= URL ?>genres/genre/<?= underEncode($tag['tag']) ?>" class="btn btn-secondary"><?= $tag['tag'] ?></a>
+    <a href="<?= URL ?>genres/genre/<?= underEncode($tag['tag']) ?>" class="btn btn-secondary m-1"><?= $tag['tag'] ?></a>
 
     <?php } ?>
 </div>
