@@ -1,5 +1,5 @@
 <div class="container col-12">
-<a href="<?= URL ?>home" class="btn btn-primary">Back to home page</a>
+<a href="<?= URL ?>genres">Back to genres</a>
 	<div class="row">
         <img src="<?= URL ?>public/images/games/<?= $game[0]['id'] ?>" class="col-3">
         <div class="col-8">
