@@ -60,13 +60,13 @@ function splitUrl() {
 
 		$tmp_url = trim($start_url , "/");
 
-
 		// Dit haalt de vreemde karakters uit de strings weg
 		$tmp_url = filter_var($tmp_url, FILTER_SANITIZE_URL);
 
 		// Met explode splits je een string op. Elk gedeelte voor de "/" wordt in een nieuwe index van een array gestopt.
 		$tmp_url = explode("/", $tmp_url);
 
+		
 		// Hier worden op basis van de eerder opgegeven variable $tmp_url de keys controller en action gevuld
 
 		$url['controller'] = isset($tmp_url[0]) ? ucwords($tmp_url[0] . 'Controller') : null;

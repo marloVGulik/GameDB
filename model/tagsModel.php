@@ -13,8 +13,8 @@ function checkNewGenreData() {
     }
 }
 function checkNewLinkData() {
-    if(isset($_POST['game']) && isset($_POST['tag']) && $_SESSION['adminCode'] > 0) {
-        DBcommand("INSERT INTO gametaglink (`id`, `gameid`, `tagid`) VALUES (NULL, :gameid, :tagid)", [':gameid' => $_POST['game'], ':tagid' => $_POST['tag']])['output'];
+    if(isset($_POST['gameid']) && isset($_POST['tagid']) && $_SESSION['adminCode'] > 0) {
+        DBcommand("INSERT INTO gametaglink (`id`, `gameid`, `tagid`) VALUES (NULL, :gameid, :tagid)", [':gameid' => $_POST['gameid'], ':tagid' => $_POST['tagid']])['output'];
     }
 }
 

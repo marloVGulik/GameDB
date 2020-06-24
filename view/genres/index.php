@@ -1,11 +1,16 @@
+
 <?php if($_SESSION['adminCode'] > 0) { ?> 
-    <a href="<?= URL ?>genres/newGenre" class="btn btn-primary">Create new tag</a>
-    <a href="<?= URL ?>genres/newLink" class="btn btn-primary">Create new link</a>
-    <br>
+    <div class="p-2">
+        <a href="<?= URL ?>genres/newGenre" class="btn btn-primary">Create new tag</a>
+        <a href="<?= URL ?>genres/newLink" class="btn btn-primary">Create new link</a>
+    </div>
 <?php } ?>
 
-<?php foreach($tags as $tag) { ?>
 
-<a href="<?= URL ?>genres/genre/<?= $tag['tag'] ?>"><?= $tag['tag'] ?></a>
+<div class="p-2 mt-2">
+    <?php foreach($tags as $tag) { ?>
 
-<?php } ?>
+    <a href="<?= URL ?>genres/genre/<?= underEncode($tag['tag']) ?>" class="btn btn-secondary"><?= $tag['tag'] ?></a>
+
+    <?php } ?>
+</div>
