@@ -34,6 +34,7 @@ function checkSuggestionData() {
     }
 }
 function acceptSuggestionData($id) {
+    if($_SESSION['adminCode'] < 1) header("location: " . URL);
     $checkData = array(
         'gamename',
         'description',
@@ -62,7 +63,7 @@ function acceptSuggestionData($id) {
         ]);
 
         if(file_exists($_FILES['imgFile']['tmp_name'])) {
-            $target = ROOT . "public/images/games/" . $primKey;
+            $target = ROOT . "public/images/games/" . $id;
             move_uploaded_file($_FILES['imgFile']['tmp_name'], $target);
         }
 
@@ -78,7 +79,7 @@ function getAllSuggestions() {
 function getSingleGame($id) {
     $res = DBcommand("SELECT * FROM games WHERE id = :id", [':id' => $id])['output'];
     if(count($res) != 1) header("location: " . URL);
-    return $res;
+    return $res[0];
 }
 function getGameTags($id) {
     return DBcommand("SELECT tags.tag, tags.id FROM gametaglink JOIN tags ON gametaglink.tagid = tags.id WHERE gametaglink.gameid = :id", [':id' => $id])['output'];

@@ -15,8 +15,19 @@ function viewSuggestions() {
         'suggestions' => getAllSuggestions(),
     ));
 }
-function acceptSuggestion($id) {
-
+function acceptSuggestion($id = null) {
+    if($id == null) header("location: " . URL);
+    acceptSuggestionData($id);
+    render("games/edit", array(
+        'game' => getSingleGame($id),
+    ));
+}
+function edit($id = null) {
+    if($id == null) header("location: " . URL);
+    acceptSuggestionData($id);
+    render("games/edit", array(
+        'game' => getSingleGame($id),
+    ));
 }
 
 
