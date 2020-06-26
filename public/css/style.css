@@ -11,10 +11,12 @@
 
 body {
   color: black;
-  background-color: white;
   margin: 0;
   padding: 0;
-  background: #48485c;
+  background: rgba(117, 117, 117, 0.6);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: color;
 }
 
 body::-webkit-scrollbar {
@@ -188,20 +190,6 @@ main {
   --bg-secondary: #141418;
 }
 
-.light {
-  --text-primary: #1f1f1f;
-  --text-secondary: #000000;
-  --bg-primary: #ffffff;
-  --bg-secondary: #e4e4e4;
-}
-
-.solar {
-  --text-primary: #576e75;
-  --text-secondary: #35535c;
-  --bg-primary: #fdf6e3;
-  --bg-secondary: #f5e5b8;
-}
-
 .theme-icon {
   display: none;
 }
@@ -228,7 +216,6 @@ main {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #48485c;
 }
 .gamecard {
   display: grid;
@@ -243,7 +230,7 @@ main {
   background-size: cover;
   transition: 0.5s ease;
   cursor: pointer;
-  margin:30px;
+  margin: 30px;
 }
 
 .gamecard:hover {
@@ -251,32 +238,24 @@ main {
   box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
 }
 
-/* For labels */
-/*= Reset CSS 
-			============= */
-			html, body {border: 0; margin: 0; padding: 0;}
-			body {font: 14px "Lato", Arial, sans-serif; min-width: 100%; min-height: 100%; color: #666;}
-			.container{margin: 0 auto; max-width: 1200px;}
-			*{margin: 0; padding: 0; box-sizing: border-box;}
-			.row{float: left; width: 100%; padding: 20px 0 50px;}
-			h2{text-align: center; color: #2079df; font-size: 28px; float: left; width: 100%; margin: 30px 0; position: relative; line-height: 58px; font-weight: 400;}
-			h2:before{content: ""; position: absolute; left: 50%; bottom: 0; width: 100px; height: 2px; background-color: #2079df; margin-left: -50px;}
-			/*= Reset CSS End
-			================= */
+.label-control {
+  color: #c8c8c8;
+}
 
-			/*= input focus effects css
-			=========================== */
-			:focus{outline: none;}
+.form-control::before{
+  background: #3e3e3e;
+}
 
-			.inputanimation{float: left; width: 27.33%; margin: 40px 3%; position: relative;} /* necessary to give position: relative to parent. */
-			input[type="text"]{font: 15px/24px "Lato", Arial, sans-serif; color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
+.form-control {
+  background-color: #3e3e3e !important;
+  border-color: #292929;
+  color: #7a7a7a;
+  transition: .2s ease-in-out !important;
+}
 
+.form-control:focus{
+  background-color: #3e3e3e;
+  border-color: #3e3e3e;
+  color: #c8c8c8;
+}
 
-			.animted{
-			border: 0; padding: 4px 0; border-bottom: 1px solid #ccc; background-color: transparent;}
-
-			.animted ~ .focus-border{position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #3399FF; transition: 0.4s;}
-			.animted:focus ~ .focus-border,
-			.has-content.animted ~ .focus-border{width: 100%; transition: 0.4s;}
-			.animted ~ label{position: absolute; left: 0; width: 100%; top: 9px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
-			.animted:focus ~ label, .has-content.animted ~ label{top: -16px; font-size: 12px; color: #3399FF; transition: 0.3s;}

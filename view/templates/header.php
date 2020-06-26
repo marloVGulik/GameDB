@@ -9,7 +9,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet" />
     </head>
 
-    <body class="dark">
+    <body class="dark background" style="background-image: url('<?= URL ?>public/images/background/bg.png')">
         <nav class="navigationbar">
             <ul class="navigationbar-nav">
                 <li class="logo">
@@ -89,5 +89,4 @@
             </li>
             </ul>
         </nav>
-
         <main>
