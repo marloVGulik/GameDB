@@ -33,6 +33,47 @@ function checkSuggestionData() {
         header("location: " . URL);
     }
 }
+function acceptSuggestionData($id) {
+    $checkData = array(
+        'gamename',
+        'description',
+        'developer',
+        'released',
+        'platform',
+        'PEGI',
+        // 'imgFile'
+    );
+    $doContinue = true;
+    foreach($checkData as $key) {
+        if(!isset($_POST[$key])) {
+            $doContinue = false;
+        }
+    }
+    if($doContinue) {
+        DBcommand("UPDATE games SET `gamename` = :gamename, `description` = :description, `developer` = :developer, `released` = :released, `platform` = :platform, `PEGI` = :PEGI, `suggestion` = 0 WHERE id = :id", [
+            ':gamename' => $_POST['gamename'],
+            ':description' => $_POST['description'],
+            ':developer' => $_POST['developer'],
+            ':released' => $_POST['released'],
+            ':platform' => $_POST['platform'],
+            ':PEGI' => $_POST['PEGI'],
+
+            ':id' => $id
+        ]);
+
+        if(file_exists($_FILES['imgFile']['tmp_name'])) {
+            $target = ROOT . "public/images/games/" . $primKey;
+            move_uploaded_file($_FILES['imgFile']['tmp_name'], $target);
+        }
+
+        header("location: " . URL);
+    }
+}
+function getAllSuggestions() {
+    return DBcommand("SELECT id, gamename FROM games WHERE suggestion = 1", [])['output'];
+}
+
+
 
 function getSingleGame($id) {
     $res = DBcommand("SELECT * FROM games WHERE id = :id", [':id' => $id])['output'];

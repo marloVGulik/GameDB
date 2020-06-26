@@ -8,12 +8,18 @@
                 <p><?= $game[0]['description'] ?> </p>
             </div>
             <div class="col-12 bg-secondary text-light p-2">
-                <p>Genre: <?= $game[0]['tag'] ?></p>
+                <p>Genre: <?php foreach($tags as $tag) { ?><?= $tag['tag'] . " " ?><?php } ?></p>
                 <p>Release date: <?= $game[0]['released'] ?> </p>
                 <p>Developer: <?= $game[0]['developer'] ?> </p>
                 <p>Platform: <?= $game[0]['platform'] ?> </p>
 
             </div>
+        </div>
+        <div>
+            <h1>Find games with the same genre</h1><br>
+            <?php foreach($tags as $tag) { ?>
+                <a href="<?= URL ?>genres/genre/<?= underEncode($tag['tag']) ?>" class="btn btn-secondary m-1"><?= $tag['tag'] ?></a>
+            <?php } ?>
         </div>
 
     </div>
@@ -22,9 +28,3 @@
 
 
 
-<div>
-<h1>Deze kan je gebruiken voor later, is alvast klaar gezet voor je. Alleen de style nog niet xD</h1>
-<?php foreach($tags as $tag) { ?>
-    <a href="<?= URL ?>genres/genre/<?= underEncode($tag['tag']) ?>" class="btn btn-secondary m-1"><?= $tag['tag'] ?></a>
-<?php } ?>
-</div>

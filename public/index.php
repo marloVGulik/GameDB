@@ -11,7 +11,7 @@ require(ROOT . "core/core.php");
 
 if(!isset($_SESSION['loggedIn'])) {
     $_SESSION['loggedIn'] = -1;
-    $_SESSION['adminCode'] = -1;
+    $_SESSION['adminCode'] = 0;
 }
 
 route();

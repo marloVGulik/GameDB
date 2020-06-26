@@ -78,7 +78,6 @@ function existPrintArray($arr, $key) {
     return NULL;
 }
 
-// Some properly working URL encoding
 function underEncode($data) {
     return str_replace(" ", "_", $data);
 }
